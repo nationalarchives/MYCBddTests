@@ -1,0 +1,5 @@
+﻿Feature: validFilesUpload
+	
+Scenario: ValidationCheckFonds
+	 
+	
