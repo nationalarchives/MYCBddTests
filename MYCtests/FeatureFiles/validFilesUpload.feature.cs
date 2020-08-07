@@ -73,14 +73,28 @@ namespace MYCtests.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 3
+#line hidden
+#line 4
+testRunner.Given("I am on MYC page, sign in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("ValidationCheckFonds")]
-        public virtual void ValidationCheckFonds()
+        [NUnit.Framework.TestCaseAttribute("FondsPath", null)]
+        [NUnit.Framework.TestCaseAttribute("FondsAndSubFondsPath", null)]
+        [NUnit.Framework.TestCaseAttribute("SeriesPath", null)]
+        [NUnit.Framework.TestCaseAttribute("AllLevelsPath", null)]
+        public virtual void ValidationCheckFonds(string validFiles, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("validFiles", validFiles);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ValidationCheckFonds", null, tagsOfScenario, argumentsOfScenario);
-#line 3
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -100,6 +114,15 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line hidden
+#line 7
+testRunner.When(string.Format("I upload the \"{0}\"", validFiles), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 8
+testRunner.Then("check for the message upload completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

@@ -87,7 +87,9 @@ namespace MYCtests.StepDefinitions
             _driver.FindElement(By.XPath("//label[contains(.,'production.date.end')]")).Click();
             _driver.FindElement(By.Id("match")).Click();
             Thread.Sleep(1000);
-            _driver.FindElement(By.Id("map_name")).SendKeys("TestKenrickMapping");
+            DateTime start = DateTime.UtcNow;
+            _driver.FindElement(By.Id("map_name")).SendKeys("TestKenrickMapping" + start);
+           // _driver.FindElement(By.Id("map_name")).SendKeys("TestKenrickMapping");
             Thread.Sleep(1000);
             _driver.FindElement(By.XPath("//input[@type='submit' and @value='Submit and continue']")).Click();
 

@@ -86,7 +86,7 @@ namespace MYCtests.FeatureFiles
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Date Validation")]
+        [NUnit.Framework.DescriptionAttribute("Data Validation")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("EmptyFilePath", "Your template is empty - it does not contain any catalogue information.", null)]
         [NUnit.Framework.TestCaseAttribute("DateValidationFilePath", "Your collection must have either \'covering dates\', or a \'start date\' and an \'end " +
@@ -110,7 +110,7 @@ namespace MYCtests.FeatureFiles
             "sub-sub-fonds directly under fonds", null)]
         [NUnit.Framework.TestCaseAttribute("SubSubSubSeriesPath", "We require a valid level hierarchy in this field. It is not possible to have sub-" +
             "sub-sub-series directly under series", null)]
-        public virtual void DateValidation(string invalidFilePath, string errorMsg, string[] exampleTags)
+        public virtual void DataValidation(string invalidFilePath, string errorMsg, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -122,7 +122,7 @@ namespace MYCtests.FeatureFiles
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("invalidFilePath", invalidFilePath);
             argumentsOfScenario.Add("errorMsg", errorMsg);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Date Validation", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Data Validation", null, tagsOfScenario, argumentsOfScenario);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

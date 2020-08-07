@@ -5,7 +5,7 @@ Background:
 	When Go to Add a collection
 
 @mytag
-Scenario Outline: Date Validation
+Scenario Outline: Data Validation
 	When upload "<invalidFilePath>" type
 	And check for the upload message The file has been added to the queue for upload. Please go to View history for more details.
 	Then go to View history and see error report "<errorMsg>"
