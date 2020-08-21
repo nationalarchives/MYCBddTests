@@ -12,27 +12,14 @@ namespace MYCtests.StepDefinitions
     [Binding]
     public class ValidFilesUploadSteps
     {
-        private string FondsPath;
-        private string FondsAndSubFondsPath;
-        private string SeriesPath;
-        private string AllLevelsPath;
-
-        public IWebDriver _driver;
-
-
+       public IWebDriver _driver;
         [Given(@"I am on MYC page, sign in")]
         public void GivenIAmOnMYCPageSignIn()
         {
             _driver = new PageNavigator().GoToMYCPage();
             var webDriver = new PageNavigator();
             webDriver.SingleSignOn(_driver);
-            var pageNavigator = new PageNavigator();
-            FondsPath = pageNavigator.Configuration.GetValue<string>("FondsPath");
-            FondsAndSubFondsPath = pageNavigator.Configuration.GetValue<string>("FondsAndSubFondsPath");
-            SeriesPath = pageNavigator.Configuration.GetValue<string>("SeriesPath");
-            AllLevelsPath = pageNavigator.Configuration.GetValue<string>("AllLevelsPath");
-
-
+           
         }
 
         [When(@"I upload the ""(.*)""")]
@@ -42,24 +29,9 @@ namespace MYCtests.StepDefinitions
             Thread.Sleep(1000);
             _driver.FindElement(By.Id("upload")).Click();
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//form[@id='upload-form']/div/label/span")).Click();
-            if (validFiles == "FondsPath")
-            {
-                _driver.SwitchTo().ActiveElement().SendKeys(FondsPath);
-            }
-            if (validFiles == "FondsAndSubFondsPath")
-            {
-                _driver.SwitchTo().ActiveElement().SendKeys(FondsAndSubFondsPath);
-            }
-            if (validFiles == "SeriesPath")
-            {
-                _driver.SwitchTo().ActiveElement().SendKeys(SeriesPath);
-            }
-            if (validFiles == "AllLevelsPath")
-            {
-                _driver.SwitchTo().ActiveElement().SendKeys(AllLevelsPath);
-            }
-
+            var pageNavigator = new PageNavigator();
+            var path = pageNavigator.Configuration.GetValue<string>(validFiles);
+            _driver.FindElement(By.XPath("//input[@type='file']")).SendKeys(path);
             _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
             Thread.Sleep(2000);
             string uploadMsg = _driver.FindElement(By.CssSelector(".emphasis-block > span")).Text;

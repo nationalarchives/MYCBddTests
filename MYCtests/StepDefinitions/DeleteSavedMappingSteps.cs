@@ -30,9 +30,8 @@ namespace MYCtests.StepDefinitions
             Thread.Sleep(1000);
             _driver.FindElement(By.Id("upload")).Click();
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//form[@id='upload-form']/div/label/span")).Click();
-            _driver.SwitchTo().ActiveElement().SendKeys(KenrickCollectionPath);
-            _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
+            _driver.FindElement(By.XPath("//input[@type='file']")).SendKeys(KenrickCollectionPath);
+             _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
         }
         [When(@"Click on map fields to Discovery")]
         public void WhenClickOnMapFieldsToDiscovery()
@@ -90,9 +89,8 @@ namespace MYCtests.StepDefinitions
             Thread.Sleep(1000);
             _driver.FindElement(By.Id("upload")).Click();
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//form[@id='upload-form']/div/label/span")).Click();
-            _driver.SwitchTo().ActiveElement().SendKeys(KenrickCollectionPath);
-            _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
+            _driver.FindElement(By.XPath("//input[@type='file']")).SendKeys(KenrickCollectionPath);
+           _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
             _driver.FindElement(By.LinkText("View history")).Click();
             Thread.Sleep(3000);
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;

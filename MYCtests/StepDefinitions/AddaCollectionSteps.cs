@@ -21,8 +21,7 @@ namespace MYCtests.StepDefinitions
             var webDriver = new PageNavigator();
             webDriver.SingleSignOn(_driver);
             var pageNavigator = new PageNavigator();
-            KenrickCollectionPath = pageNavigator.Configuration.GetValue<string>("KenrickCollectionPath");
-            
+            KenrickCollectionPath = pageNavigator.Configuration.GetValue<string>("KenrickCollectionPath");     
         }
 
         [When(@"I upload a valid file")]
@@ -32,8 +31,7 @@ namespace MYCtests.StepDefinitions
             Thread.Sleep(1000);
             _driver.FindElement(By.Id("upload")).Click();
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//form[@id='upload-form']/div/label/span")).Click();
-            _driver.SwitchTo().ActiveElement().SendKeys(KenrickCollectionPath);
+            _driver.FindElement(By.XPath("//input[@type='file']")).SendKeys(KenrickCollectionPath);
             _driver.FindElement(By.XPath("//input[@value='Upload']")).Click();
         }
 
